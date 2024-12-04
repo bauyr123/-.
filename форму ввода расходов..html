@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Форма ввода расходов</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .form-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .form-container h2 {
+      text-align: center;
+    }
+    .form-container label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    .form-container input, .form-container select, .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .form-container button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Форма ввода расходов</h2>
+  <form id="expense-form">
+    <label for="date">Дата</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="sum">Сумма</label>
+    <input type="number" id="sum" name="sum" step="100" required>
+
+    <label for="category">Категория</label>
+    <select id="category" name="category" required>
+      <option value="Аренда">Аренда</option>
+      <option value="Еда">Еда</option>
+      <option value="Развлечения">Развлечения</option>
+    </select>
+
+    <label for="comment">Комментарий</label>
+    <textarea id="comment" name="comment" rows="4"></textarea>
+
+    <button type="submit">Отправить</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('expense-form').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    const date = document.getElementById('date').value;
+    const sum = document.getElementById('sum').value;
+    const category = document.getElementById('category').value;
+    const comment = document.getElementById('comment').value;
+
+    console.log("Дата: ", date);
+    console.log("Сумма: ", sum);
+    console.log("Категория: ", category);
+    console.log("Комментарий: ", comment);
+
+    document.getElementById('expense-form').reset();
+    
+    alert("Данные успешно отправлены!");
+  });
+</script>
+
+</body>
+</html>
